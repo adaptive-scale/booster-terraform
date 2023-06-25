@@ -5,6 +5,11 @@ This repository has a terraform code for creating a VM with booster.
 # Step to create a booster
 
 - Download `terraform`. You can follow the link [here](https://developer.hashicorp.com/terraform/downloads)
+- Clone the repository
+```azure
+git clone https://github.com/adaptive-scale/booster-terraform.git
+cd booster-terraform
+```
 - Run:
 Please make sure the AWS credentials are set either in location `~/.aws/credentials` or as environment variables.
 A credentials files might looks as follows:
