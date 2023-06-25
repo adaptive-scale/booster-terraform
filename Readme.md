@@ -4,13 +4,14 @@ This repository has a terraform code for creating a VM with booster.
 
 # Step to create a booster
 
-- Download `terraform`. You can follow the link [here](https://developer.hashicorp.com/terraform/downloads)
-- Clone the repository
+Download `terraform`. You can follow the link [here](https://developer.hashicorp.com/terraform/downloads)
+
+Clone the repository
 ```azure
 git clone https://github.com/adaptive-scale/booster-terraform.git
 cd booster-terraform
 ```
-- Run:
+
 Please make sure the AWS credentials are set either in location `~/.aws/credentials` or as environment variables.
 A credentials files might looks as follows:
 ```azure
@@ -23,9 +24,8 @@ aws_secret_access_key=<secret_access>
 Environment variables might look as follows:
 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION` should be set.
 
-Please make sure in terraform code, region is appropriately set as well as a corresponding `ami` is set too.
-
-Please make sure the key that you are going to use to access this VM exists in your machine too. You would need that later to access the VM and install booster.
+Make sure in terraform code, region is appropriately set as well as a corresponding `ami` is set too.
+Make sure the key that you are going to use to access this VM exists in your machine too. You would need that later to access the VM and install booster.
 
 Run the following commands:
 
@@ -42,7 +42,7 @@ If the terraform scripts run successfully. Do as follows:
 
 This should take you the VM, you just created.
 
-- Install booster's pre-requisites. You Amazon linux, following are the installation instructions
+Install booster's pre-requisites. You Amazon linux, following are the installation instructions
 ```bash
 sudo yum update -y
 sudo yum install -y docker
