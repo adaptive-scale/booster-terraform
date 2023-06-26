@@ -49,7 +49,7 @@ ssh -i /tmp/keypair.pem ubuntu@$(terraform output -json| jq -r .ec2instance.valu
 
 This should take you the VM, you just created.
 
-Install booster's pre-requisites. You Amazon linux, following are the installation instructions
+Install booster's pre-requisites. On Amazon linux, following are the installation instructions
 ```bash
 sudo yum update -y
 sudo yum install -y docker
