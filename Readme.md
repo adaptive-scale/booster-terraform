@@ -45,7 +45,7 @@ If the image is `ubuntu`, then run:
 ```
 This should take you the VM, you just created.
 
-Install booster's pre-requisites. You Amazon linux, following are the installation instructions
+Install booster's pre-requisites. On Amazon linux, following are the installation instructions
 ```bash
 sudo yum update -y
 sudo yum install -y docker
