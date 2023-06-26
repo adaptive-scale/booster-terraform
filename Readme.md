@@ -1,6 +1,6 @@
 # Terraform for Adaptive Booster 
 
-This repository has a terraform code for creating a VM with booster.
+If you wish to setup booster via terraform, you can follow the instructions below.
 
 # Step to create a booster
 
