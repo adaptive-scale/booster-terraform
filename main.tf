@@ -3,12 +3,12 @@ variable "awsprops" {
   default = {
     region = "ap-south-1"
     vpc = "vpc-9cf909f7"
-    itype = "t2.medium"
+    itype = "t4g.medium"
     subnet = "subnet-758f911d"
     publicip = true
-    // Every region has a different ami, See here - https://aws.amazon.com/amazon-linux-ami/
+    // Every region has a different ami, See here - https://aws.amazon.com/amazon-linux-ami/ or https://cloud-images.ubuntu.com/locator/ec2/
     // For us-east-2 -> ami-0b59bfac6be064b78
-    ami = "ami-0aba92643213491b9"
+    ami = "ami-0ae12517fe595ce17"
     keyname = "test"
     secgroupname = "adaptive-booster-sec"
   }

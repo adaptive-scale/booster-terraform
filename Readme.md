@@ -39,7 +39,10 @@ If the terraform scripts run successfully. Do as follows:
 ```
  ssh -i <location-of-the-key> ec2-user@$(terraform output -json| jq -r .ec2instance.value)
 ```
-
+If the image is `ubuntu`, then run:
+```azure
+ ssh -i <location-of-the-key> ubuntu@$(terraform output -json| jq -r .ec2instance.value)
+```
 This should take you the VM, you just created.
 
 Install booster's pre-requisites. You Amazon linux, following are the installation instructions
@@ -77,4 +80,7 @@ sudo usermod -aG docker $USER
 sudo apt-get install -y jq
 newgrp docker
 sudo systemctl start docker
+curl https://cli.adaptive.live/booster/installer.sh | bash && source ~/.profile
+adaptive-booster version
+adaptive-booster setup create #by default, it is us-east-2, but if the region you want to route it via is ap-south-1, use this - `adaptive-booster setup create --region ap-south-1`
 ```
