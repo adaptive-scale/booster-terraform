@@ -36,13 +36,17 @@ terraform apply
 
 If the terraform scripts run successfully. Do as follows:
 
+```bash
+terraform output -json|jq -r .private_key.value > /tmp/keypair.pem
+ssh -i  /tmp/keypair.pem ec2-user@$(terraform output -json| jq -r .ec2instance.value)
 ```
- ssh -i <location-of-the-key> ec2-user@$(terraform output -json| jq -r .ec2instance.value)
-```
+
 If the image is `ubuntu`, then run:
-```azure
- ssh -i <location-of-the-key> ubuntu@$(terraform output -json| jq -r .ec2instance.value)
+```bash
+terraform output -json|jq -r .private_key.value > /tmp/keypair.pem
+ssh -i /tmp/keypair.pem ubuntu@$(terraform output -json| jq -r .ec2instance.value)
 ```
+
 This should take you the VM, you just created.
 
 Install booster's pre-requisites. You Amazon linux, following are the installation instructions

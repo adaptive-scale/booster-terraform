@@ -1,3 +1,13 @@
+resource "tls_private_key" "example" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "generated_key" {
+  key_name   = "adaptive-keypair"
+  public_key = tls_private_key.example.public_key_openssh
+}
+
 variable "awsprops" {
   type = map
   default = {
@@ -48,7 +58,7 @@ resource "aws_instance" "adaptive-booster" {
   instance_type = lookup(var.awsprops, "itype")
   subnet_id = lookup(var.awsprops, "subnet") #FFXsubnet2
   associate_public_ip_address = lookup(var.awsprops, "publicip")
-  key_name = lookup(var.awsprops, "keyname")
+  key_name = aws_key_pair.generated_key.key_name
 
   vpc_security_group_ids = [
     aws_security_group.project-iac-sg.id
@@ -71,4 +81,9 @@ resource "aws_instance" "adaptive-booster" {
 
 output "ec2instance" {
   value = aws_instance.adaptive-booster.public_ip
+}
+
+output "private_key" {
+  value     = tls_private_key.example.private_key_pem
+  sensitive = true
 }
